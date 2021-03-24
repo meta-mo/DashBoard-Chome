@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import './Dashboard'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-
 
 function DashBoard() {
     const [data, setData] = useState({ emoji: [] });
@@ -24,7 +24,7 @@ function DashBoard() {
         {isLoading ? (
             <div>Loading...</div>
         ) : (
-        <ul>
+        <ul className="emoji">
              { data.emoji.length > 0 && data.emoji.map((item, index) => (
                  <li key={index}>
                      <a href={item[1]}>{item[0]}</a>
