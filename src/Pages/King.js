@@ -5,7 +5,6 @@ import axios from 'axios'
 function King() {
     return (
         <div>
-            <h1>King</h1>
         </div>
     )
 }

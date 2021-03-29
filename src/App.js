@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.scss';
+import './Styles/App.scss';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './Organisms/Header'
 import King from './Pages/King'
