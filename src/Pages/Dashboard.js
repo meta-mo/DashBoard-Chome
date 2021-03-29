@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react'
-import './Dashboard'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 
 function DashBoard() {
     const [data, setData] = useState({ emoji: [] });
     const [isLoading, setIsLoading] = useState(false);
+    // APIkey = 'https://sheets.googleapis.com/v4/spreadsheets/1CH7HF7KGAVw_Iov0PLl3sdlLM5VS4rroWgfXM6Vv0BM/values/A2:B?key=AIzaSyC8RUXFawnGVSpKCWoeAZw3P8HTuKEaPsI'
 
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
-            const result = await axios('https://sheets.googleapis.com/v4/spreadsheets/1CH7HF7KGAVw_Iov0PLl3sdlLM5VS4rroWgfXM6Vv0BM/values/A2:B?key=AIzaSyC8RUXFawnGVSpKCWoeAZw3P8HTuKEaPsI'
+            const result = await axios('https://sheets.googleapis.com/v4/spreadsheets/1CH7HF7KGAVw_Iov0PLl3sdlLM5VS4rroWgfXM6Vv0BM/values/Sheet1!A2:B?key=AIzaSyC8RUXFawnGVSpKCWoeAZw3P8HTuKEaPsI'
             );
             setData({emoji: result.data.values});
             setIsLoading(false);
