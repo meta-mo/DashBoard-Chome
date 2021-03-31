@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import ReactDOM from 'react-dom'
 import axios from 'axios'
+import '../Styles/Dashboard.scss'
 
 function DashBoard() {
     const [data, setData] = useState({ emoji: [] });
@@ -10,7 +10,7 @@ function DashBoard() {
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
-            const result = await axios('https://sheets.googleapis.com/v4/spreadsheets/1CH7HF7KGAVw_Iov0PLl3sdlLM5VS4rroWgfXM6Vv0BM/values/Sheet1!A2:B?key=AIzaSyC8RUXFawnGVSpKCWoeAZw3P8HTuKEaPsI'
+            const result = await axios('https://sheets.googleapis.com/v4/spreadsheets/1CH7HF7KGAVw_Iov0PLl3sdlLM5VS4rroWgfXM6Vv0BM/values/Sheet1!A2:D?key=AIzaSyC8RUXFawnGVSpKCWoeAZw3P8HTuKEaPsI'
             );
             setData({emoji: result.data.values});
             setIsLoading(false);
@@ -25,9 +25,11 @@ function DashBoard() {
             <div>Loading...</div>
         ) : (
         <ul className="emoji">
-             { data.emoji.length > 0 && data.emoji.map((item, index) => (
+             { data.emoji.length > 0 && data.emoji.map((item, index) =>　(
                  <li key={index}>
-                     <a href={item[1]}>{item[0]}</a>
+                     <img src={item[3]} alt=""></img>
+                     <p>{item[1]}</p>
+                     <small>{item[2]}</small>
                  </li>
              ))}
          </ul>
@@ -35,10 +37,5 @@ function DashBoard() {
         </div>
     );
 };
-
-ReactDOM.render(
-    <DashBoard/>,
-    document.getElementById('root')
-);
 
 export default DashBoard;
